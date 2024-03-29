@@ -3,15 +3,16 @@ const mongoose = require('mongoose');
 
 
 const cameraSchema = new mongoose.Schema({
+    owner:{
+        type:String,
+        required:true
+    },
+
     camera_no:{
         type:String,
         required: true
     },
-    // camera_name:{
-    //     type: String,
-    //     required: false,
-    
-    // },
+
     
 
     users: [{

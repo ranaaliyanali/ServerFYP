@@ -55,11 +55,14 @@ userScheme.pre('save', async function(next)
 });
 
 userScheme.methods.generateAuthToken = async function (){
-    try{
-        let token1 = jwt.sign({_id: this._id}, process.env.SECRET_KEY);
-        
-        return token1;
-    }catch(err){
+    try {
+        // Generate JWT token with owner ID and total number of cameras
+        let token = jwt.sign({
+            _id: this._id,
+            email:this.email,
+        }, process.env.SECRET_KEY);
+        return token;
+    } catch (err) {
         console.log(err);
     }
 }

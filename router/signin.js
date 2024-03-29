@@ -1,16 +1,8 @@
 const express = require("express");
 require("../DB/conn");
-
 const bycrypt = require('bcrypt');
-
 const jwt = require('jsonwebtoken');
 const Users = require("../model/userSchema");
-
-const Owners = require("../model/ownerSchema");
-
-const authenticate = require("../Middleware/authenticate");
-
-
 const router = express.Router();
 
 router.post("/signin", async (req, res) => {
@@ -40,10 +32,7 @@ router.post("/signin", async (req, res) => {
     }
   });
 
-router.post('/user_about' ,async(req, res)=>{
-  
 
-})
 
 
 module.exports = router;

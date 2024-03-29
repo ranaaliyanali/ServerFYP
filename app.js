@@ -12,18 +12,13 @@ app.use(require('./router/cameraController'));
 app.use(require("./router/signin"));
 const adminPanel = require("./Admin/adminPanelController");
 app.use(require("./router/admin-router"))
-app.use(require("./router/owner_about"))
+app.use(require("./router/Portfolio"))
+
+app.use(require("./router/cameras"))
 app.use(require("./Camera_Controllers/addusers"));
 app.use(require("./Camera_Controllers/deleteuser"));
 const db = process.env.DATABSE;
 const PORT = process.env.PORT;
-
-
-
-app.get("/contact", (req, res) => {
-  // res.cookie("test", 'ali')
-  res.send("hello contact world from the server");
-});
 
 app.get("/admin", (req, res) => {
   const formContent = `
