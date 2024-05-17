@@ -7,11 +7,17 @@ const getCameras = async (req, res) => {
     try {
         const userId = req.UserID;
         const cameras = await Cameras.find({ owner: userId });
+        console.log("usssss",cameras)
 
         const usersDetails = [];
             for (const camera of cameras) {
                 for (const user of camera.users) {
-                    const userDetails = await Users.findById(user.user);
+                    const userDetails = await Users.findById(user.user).
+                    select({
+                        password: 0,
+                        cpassword:0,
+                        isOwner:0,
+            });
                     usersDetails.push(userDetails);
                 }
             }

@@ -37,7 +37,10 @@ const userScheme = new mongoose.Schema({
     isOwner: {
         type: Boolean,
         default:false
-    }
+    },
+    profileImage: [{
+        type: String // Assuming you'll store the filename or URL of the profile image
+    }],
 
 })
 

@@ -13,7 +13,7 @@ router.post("/signin", async (req, res) => {
         return res.status(400).json({ error: "Please provide both email and password" });
       }
   
-      const user = await Users.findOne({ email });
+      const user = await Users.findOne({email});
       const isMatch = await  bycrypt.compare(password,user.password);
   
       if (!user) {
@@ -23,7 +23,11 @@ router.post("/signin", async (req, res) => {
           const token = await user.generateAuthToken(user._id);
           res.status(200).json({ message: "User login successfully",
             token,
-            userId: user._id.toString()
+            userId: user._id.toString(),
+              firstname: user.firstname,
+              lastname: user.lastname,
+              email: user.email,
+              phone:user.phone
       })
     }
     } catch (err) {

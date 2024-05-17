@@ -7,6 +7,10 @@ const cameraSchema = new mongoose.Schema({
         type:String,
         required:true
     },
+    owner_name:{
+        type:String,
+        required: true
+    },
 
     camera_no:{
         type:String,
@@ -18,9 +22,7 @@ const cameraSchema = new mongoose.Schema({
     users: [{
         user: { type: mongoose.Schema.Types.ObjectId, ref: 'Users' },
         
-        // image:{ data:Buffer,
-        //         contentType: String   }
-        // Define the phone field here
+
     }],
 
 })

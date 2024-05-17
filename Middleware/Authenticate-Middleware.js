@@ -18,6 +18,7 @@ const authenticateMiddleware =  async(req, res, next) =>{
         select({
             password: 0,
             cpassword:0,
+            isOwner:0,
         });
         // console.log("userdata", userData)
         req.user = userData;

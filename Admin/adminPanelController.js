@@ -37,7 +37,8 @@ const adminPanelController = async (email, camerano, req, res) => {
 
 
     // Create a new camera and save it
-    const camera = new Cameras({ camera_no: camerano , owner: ownerData._id});
+    const ownerName = `${ownerData.firstname} ${ownerData.lastname}`;
+    const camera = new Cameras({ camera_no: camerano , owner_name:ownerName ,owner: ownerData._id});
     await camera.save();
 
     await Admins.findOneAndUpdate({ email }, { $push: { totalcameras: camerano } });

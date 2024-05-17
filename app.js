@@ -2,9 +2,14 @@ const dotenv = require("dotenv");
 const mongoose = require("mongoose");
 const express = require("express");
 const app = express();
+const cors = require('cors');
 
 dotenv.config({ path: "./config.env" });
 require("./DB/conn");
+
+// app.use(cors({
+//   origin: 'http://localhost:3001',
+// }));
 
 app.use(express.json());
 app.use(require("./router/registration"));
@@ -13,7 +18,7 @@ app.use(require("./router/signin"));
 const adminPanel = require("./Admin/adminPanelController");
 app.use(require("./router/admin-router"))
 app.use(require("./router/Portfolio"))
-
+app.use(require("./router/apis"))
 app.use(require("./router/cameras"))
 app.use(require("./Camera_Controllers/addusers"));
 app.use(require("./Camera_Controllers/deleteuser"));

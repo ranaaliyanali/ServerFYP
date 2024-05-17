@@ -4,6 +4,7 @@ require("../DB/conn");
 const getCameras = require("../User/getCameras")
 const authneticateMiddleware = require("../Middleware/Authenticate-Middleware")
 
+
 const router = express.Router();
 router.route("/cameras").get( authneticateMiddleware, getCameras);
 
